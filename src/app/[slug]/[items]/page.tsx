@@ -17,41 +17,41 @@ import { content } from "@/content/content";
 
 type ItemsPageParams = { slug: string; items: ItemsType };
 
-export async function generateMetadata({
-	params,
-}: {
-	params: Promise<ItemsPageParams>;
-}) {
-	const slug = (await params).slug;
-	// BEFORE:
-	// const pageData = getPageContentExperimental({ slug, from: "array" });
-	// =>
-	//const pageData = getPageContentExperimental({ slug, from: "object" });
-	//=== ❗❗❗ 👇TODO: EXTRACT AS getPageMetadata(slug)👇 ===❗❗❗
-	const slugPageData = content.pages[slug];
+// export async function generateMetadata({
+// 	params,
+// }: {
+// 	params: Promise<ItemsPageParams>;
+// }) {
+// 	const slug = (await params).slug;
+// 	// BEFORE:
+// 	// const pageData = getPageContentExperimental({ slug, from: "array" });
+// 	// =>
+// 	//const pageData = getPageContentExperimental({ slug, from: "object" });
+// 	//=== ❗❗❗ 👇TODO: EXTRACT AS getPageMetadata(slug)👇 ===❗❗❗
+// 	const slugPageData = content.pages[slug];
 
-	if (!slugPageData || slugPageData.pageType !== "category") return {};
+// 	if (!slugPageData || slugPageData.pageType !== "category") return {};
 
-	const slugPageMetadata = content.categories[slug].metadata;
-	//=== ❗❗❗ 👆TODO: EXTRACT AS getPageMetadata(slug)👆 ===❗❗❗
+// 	const slugPageMetadata = content.categories[slug].metadata;
+// 	//=== ❗❗❗ 👆TODO: EXTRACT AS getPageMetadata(slug)👆 ===❗❗❗
 
-	const itemsType = (await params).items;
+// 	const itemsType = (await params).items;
 
-	return {
-		title: `Vadim Gierko | ${slugPageMetadata.title} |
-          ${
-						itemsType === "projects"
-							? "Projekty (Projects)"
-							: itemsType === "articles"
-							? "Artykuły (Articles)"
-							: itemsType === "videos"
-							? "Filmy (Videos)"
-							: itemsType === "images"
-							? "Galeria (Gallery)"
-							: "Nagrania (Audios)"
-					}`,
-	};
-}
+// 	return {
+// 		title: `Vadim Gierko | ${slugPageMetadata.title} |
+//           ${
+// 						itemsType === "projects"
+// 							? "Projekty (Projects)"
+// 							: itemsType === "articles"
+// 							? "Artykuły (Articles)"
+// 							: itemsType === "videos"
+// 							? "Filmy (Videos)"
+// 							: itemsType === "images"
+// 							? "Galeria (Gallery)"
+// 							: "Nagrania (Audios)"
+// 					}`,
+// 	};
+// }
 
 export async function generateStaticParams() {
 	const params: ItemsPageParams[] = [];

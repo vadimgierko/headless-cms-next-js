@@ -8,18 +8,18 @@ import { websiteConfig } from "../../website.config";
 
 const domain = cms.domains.values[websiteConfig.domainName];
 
-export function generateMetadata(): Metadata {
-	const { title, description, authorName, favicon, openGraph } =
-		domain.metadata;
-	const metadata: Metadata = {
-		title,
-		description,
-		authors: { name: authorName },
-		icons: favicon,
-		openGraph,
-	};
-	return metadata;
-}
+// export function generateMetadata(): Metadata {
+// 	const { title, description, authorName, favicon, openGraph } =
+// 		domain.metadata;
+// 	const metadata: Metadata = {
+// 		title,
+// 		description,
+// 		authors: { name: authorName },
+// 		icons: favicon,
+// 		openGraph,
+// 	};
+// 	return metadata;
+// }
 
 export default function RootLayout({
 	children,

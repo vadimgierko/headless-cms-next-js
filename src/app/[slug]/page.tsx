@@ -14,49 +14,49 @@ import { DevProject } from "@/types";
 
 type SlugPageParams = { slug: string };
 
-export async function generateMetadata({
-	params,
-}: {
-	params: Promise<SlugPageParams>;
-}): Promise<Metadata> {
-	const slug = (await params).slug;
-	// BEFORE:
-	// const pageData = getPageContentExperimental({ slug, from: "array" });
-	// =>
-	// const pageData = getPageContentExperimental({ slug, from: "object" });
+// export async function generateMetadata({
+// 	params,
+// }: {
+// 	params: Promise<SlugPageParams>;
+// }): Promise<Metadata> {
+// 	const slug = (await params).slug;
+// 	// BEFORE:
+// 	// const pageData = getPageContentExperimental({ slug, from: "array" });
+// 	// =>
+// 	// const pageData = getPageContentExperimental({ slug, from: "object" });
 
-	//=== ❗❗❗ 👇TODO: EXTRACT AS getPageMetadata(slug)👇 ===❗❗❗
-	const pageData = content.pages[slug];
+// 	//=== ❗❗❗ 👇TODO: EXTRACT AS getPageMetadata(slug)👇 ===❗❗❗
+// 	const pageData = content.pages[slug];
 
-	if (!pageData) return {};
+// 	if (!pageData) return {};
 
-	const pageMetadata =
-		pageData.pageType === "category"
-			? content.categories[slug].metadata
-			: content.items[pageData.props.itemsType][slug].metadata;
-	//=== ❗❗❗ 👆TODO: EXTRACT AS getPageMetadata(slug)👆 ===❗❗❗
+// 	const pageMetadata =
+// 		pageData.pageType === "category"
+// 			? content.categories[slug].metadata
+// 			: content.items[pageData.props.itemsType][slug].metadata;
+// 	//=== ❗❗❗ 👆TODO: EXTRACT AS getPageMetadata(slug)👆 ===❗❗❗
 
-	if (!pageMetadata) return {};
+// 	if (!pageMetadata) return {};
 
-	return {
-		title: `${pageMetadata.title} | Vadim Gierko`,
-		description: `${pageMetadata.description}`,
-		openGraph: {
-			title: `${pageMetadata.ogTitle || pageMetadata.title} | Vadim Gierko`,
-			description: `${pageMetadata.ogDescription || pageMetadata.description}`,
-			images: pageMetadata.ogImage
-				? pageMetadata.ogImage
-				: pageMetadata.img
-				? pageMetadata.img.src
-				: "https://www.vadimgierko.com/vadim-gerko-zdjecie-cv.jpg",
-			type:
-				pageData.pageType === "item" && pageData.props.itemType === "article"
-					? "article"
-					: "website",
-			url: "https://www.vadimgierko.com" + pageMetadata.link,
-		},
-	};
-}
+// 	return {
+// 		title: `${pageMetadata.title} | Vadim Gierko`,
+// 		description: `${pageMetadata.description}`,
+// 		openGraph: {
+// 			title: `${pageMetadata.ogTitle || pageMetadata.title} | Vadim Gierko`,
+// 			description: `${pageMetadata.ogDescription || pageMetadata.description}`,
+// 			images: pageMetadata.ogImage
+// 				? pageMetadata.ogImage
+// 				: pageMetadata.img
+// 				? pageMetadata.img.src
+// 				: "https://www.vadimgierko.com/vadim-gerko-zdjecie-cv.jpg",
+// 			type:
+// 				pageData.pageType === "item" && pageData.props.itemType === "article"
+// 					? "article"
+// 					: "website",
+// 			url: "https://www.vadimgierko.com" + pageMetadata.link,
+// 		},
+// 	};
+// }
 
 export async function generateStaticParams() {
 	// BEFORE:
