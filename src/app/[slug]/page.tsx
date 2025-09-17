@@ -86,6 +86,7 @@ export default async function Page({
 	// =>
 	// const pageData = getPageContentExperimental({ slug, from: "object" });
 
+
 	//=== ❗❗❗ 👇TODO: EXTRACT AS getPageMetadata(slug)👇 ===❗❗❗
 	const pageData = content.pages[slug];
 

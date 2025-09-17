@@ -56,12 +56,12 @@ export const domain: Domain = {
 		title: "Vadim Gierko",
 		description: "Strona internetowa Vadima Gierko",
 		authorName: "Vadim Gierko",
-		favicon: "https://vadimgierko.com/vadim-gierko-avatar.jpg",
+		favicon: "https://cms.vadimgierko.com/vadim-gierko-avatar.jpg",
 		openGraph: {
 			title: "Vadim Gierko",
 			description: "Vadim Gierko's personal website",
 			image:
-				"https://www.vadimgierko.com/img/web-development/projects/vadimgierko-com-personal-website-next-js-screen-vadim-gierko.png",
+				"https://cms.vadimgierko.com/img/web-development/projects/vadimgierko-com-personal-website-next-js-screen-vadim-gierko.png",
 			url: "https://" + websiteConfig.domainName,
 			type: "website",
 		},
