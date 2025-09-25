@@ -1,5 +1,12 @@
+/**
+ * converts api route to static json file, which leads to faster fetch
+ * (only can be used with GET)
+ * (only can be used when no searchParams)
+ */
+export const dynamic = 'force-static';
+
 import { content } from "@/content/content";
-import { Article, Project } from "@/types";
+import { Project } from "@/types";
 
 export async function GET(
   request: Request,
